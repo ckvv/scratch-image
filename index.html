@@ -84,7 +84,7 @@
       function openNewImage(){
         try {
           const imageEle =document.querySelector('#image');
-          const imageHref = `${window.location.origin}/?image=${new URL(imageEle.value).toString()}`
+          const imageHref = `${window.location.origin}/${window.location.pathname}?image=${new URL(imageEle.value).toString()}`
           window.open(imageHref,'scratch image');    
         } catch (error) {
           alert(error);
