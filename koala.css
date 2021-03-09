@@ -88,13 +88,15 @@ div.not-found {
 }
 
 #top {
+  right: 0;
+  position: fixed;
   display: flex;
   justify-content: space-between;
+  z-index: 999;
 }
 #top .top-right{
   display: flex;
   flex-direction: column;
-  user-select: all;
 }
 #top .top-left{
   display: flex;

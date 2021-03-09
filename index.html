@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=540, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
     <meta name="description" content="Koalas to the Max, a site made with love by Vadim Ogievetsky for Annie Albagli">
     <meta name="keywords" content="Koalas Max Vadim Ogievetsky Annie Albagli D3 Canvas SVG Koala Maximization">
-    <meta name="viewport" content="width=540, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="google" content="notranslate">
@@ -51,15 +51,18 @@
   <body>
     <div id="top">
       <div class="top-left">
-        <label for="image">输入图片地址:</label><input id="image" type="text"></input>
-        <button onclick="openNewImage()">
+        <label style="overflow: auto;" for="image">
+          图片地址(允许跨域):<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS" target="scratch-image">跨域设置参考</a>
+        </label>
+        <input style="height: 30px;" id="image" type="text"></input>
+        <button style="margin-top: 12px; height: 36px"  onclick="openNewImage()">
           打开
         </button>
-        <div id="qr-value"></div>
       </div>
       <div class="top-right">
-        <canvas id="qr"></canvas>
-        <div>Made By <a href="https://github.com/chenkai0520">chenkai</a></div>
+        <span>扫码分享(点击放大)</span>
+        <canvas style="width: 100px; height: 100px;" onclick="openQr()" id="qr"></canvas>
+        <div><a style="font-size: 18px;" href="https://github.com/chenkai0520/scratch-image">GitHub</a></div>
       </div>
     </div>
     <div id="center">
@@ -75,7 +78,7 @@
       (function() {
         var qr = new QRious({
           element: document.getElementById('qr'),
-          value: window.location.hred
+          value: window.location.href
         });
       })();
       function openNewImage(){
@@ -86,7 +89,11 @@
         } catch (error) {
           alert(error);
         }
+      }
 
+      function openQr(){
+        document.getElementById('qr').style.width = document.getElementById('qr').style.width === '250px' ? '100px' : '250px';
+        document.getElementById('qr').style.height = document.getElementById('qr').style.width;
       }
     </script>
     <script type="text/javascript">
