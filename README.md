@@ -1,5 +1,7 @@
 # scratch-image
  
+ # [Demo](https://chenkai0520.github.io/scratch-image/)
+
 使用方法：
 + 输入图片地址 
 如`https://i.imgur.com/sSlDIOO.jpg`

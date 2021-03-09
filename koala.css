@@ -1,12 +1,11 @@
 html,
 body {
   margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
   font-size: 14px;
-  font-family: "Helvetica Neue",Helvetica,Arial,Sans-serif;
   font-weight: 300;
-  text-align: center;
   cursor: default;
 
   -webkit-user-select: none;
@@ -14,8 +13,7 @@ body {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-
-  -ms-touch-action: none;
+  overflow: hidden;
 }
 
 div {
@@ -31,60 +29,9 @@ a:hover {
   text-decoration: underline;
 }
 
-#center {
-  position: relative;
-  height: 100%;
-  width: 512px;
-  margin: 0 auto;
-}
-
-#cont {
-  position: absolute;
-  top: 50%;
-  margin-top: -270px;
-  width:  512px;
-  height: 570px;
-}
-
-#dot {
-  width:  512px;
-  height: 512px;
-}
-
 svg,
 circle {
   pointer-events: none;
-}
-
-#next {
-  padding-top: 30px;
-}
-
-#next input {
-  width: 480px;
-  border: 1px solid #ccc;
-  outline: none;
-}
-
-#next .err {
-  color: red;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-top: 18px;
-  padding-bottom: 2px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0)));
-  background: -moz-linear-gradient(bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
-
-div.not-found {
-  text-align: center;
-  margin-top: 200px;
-  font-size: 32px;
 }
 
 #top {
@@ -102,4 +49,26 @@ div.not-found {
   display: flex;
   flex-direction: column;
 }
-
+#center{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#cont{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#dots{
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  overflow: hidden;
+}

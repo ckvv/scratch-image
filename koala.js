@@ -133,10 +133,17 @@ var koala = {
   }
 
   // Main code
-  var vis,
-      maxSize = 512,
-      minSize = 4,
-      dim = maxSize / minSize;
+  let vis;
+  let maxSize;
+  const minScreen = Math.min(window.screen.height,window.screen.width);
+  if(minScreen >= 512) {
+    maxSize = 512;
+  } else {
+    maxSize = minScreen >= 256 ? 256 : 128;
+  }
+
+  let minSize = 4;
+  let dim = maxSize / minSize;
 
   koala.loadImage = function(imageData) {
     // Create a canvas for image data resizing and extraction
@@ -176,11 +183,17 @@ var koala = {
       // Create the SVG ellement
       vis = d3.select(selector)
         .append("svg")
-          .attr("width", maxSize)
-          .attr("height", maxSize);
+          // .attr("width", maxSize)
+          // .attr("height", maxSize)
     } else {
       vis.selectAll('circle')
         .remove();
+    }
+    const svgEl = document.querySelector('#dots').querySelector('svg');
+    if(svgEl){
+      console.log(maxSize);
+      svgEl.style.width = `${maxSize}px`;
+      svgEl.style.height = `${maxSize}px`;
     }
 
     // Got the data now build the tree
@@ -317,8 +330,9 @@ var koala = {
     // Initialize interaction
     d3.select(document.body)
       .on('mousemove.koala', onMouseMove)
-      .on('touchmove.koala', onTouchMove)
-      .on('touchend.koala', onTouchEnd)
-      .on('touchcancel.koala', onTouchEnd);
+      .on('touchstart.koala', onTouchMove, { passive: false })
+      .on('touchmove.koala', onTouchMove, { passive: false })
+      .on('touchend.koala', onTouchEnd, { passive: false })
+      .on('touchcancel.koala', onTouchEnd, { passive: false });
   };
 })();
