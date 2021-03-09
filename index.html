@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+    <meta name="description" content="Koalas to the Max, a site made with love by Vadim Ogievetsky for Annie Albagli">
+    <meta name="keywords" content="Koalas Max Vadim Ogievetsky Annie Albagli D3 Canvas SVG Koala Maximization">
+    <meta name="viewport" content="width=540, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="google" content="notranslate">
+    <title>scratch image</title>
+    <script type="text/javascript">var version = '1.9.6';</script>
+    <script type="text/javascript" src="polyfill/polyfill.js?1.9.6"></script>
+    <script type="text/javascript" src="polyfill/Blob.js?1.9.6"></script>
+    <script type="text/javascript" src="polyfill/FileSaver.js?1.9.6"></script>
+    <!--[if gte IE 9]><!-->
+    <script type="text/javascript" src="d3.min.js?1.9.6"></script>
+    <script type="text/javascript" src="koala.js?1.9.6"></script>
+    <script type="text/javascript" src="image-to-base64.min.js"></script>
+    <script type="text/javascript" src="qrious.min.js"></script>
+    <!--<![endif]-->
+    <link rel="stylesheet" type="text/css" href="koala.css?1.9.6"/>
+
+    <script type="text/javascript">
+      var kttmAdTypes = [
+        'EasyList',
+        'AntiAdblockKiller'
+      ];
+    </script>
+    <script type="text/javascript">
+      try {
+        if (window.kttmAdTypes && window.kttmAdTypes.length) {
+          window.kttmAdTypes = window.kttmAdTypes.filter(function(a) {
+            return a !== 'EasyList';
+          });
+        }
+      } catch (e) {}
+    </script>
+    <script type="text/javascript">
+    try {
+      if (window.kttmAdTypes && window.kttmAdTypes.length) {
+        window.kttmAdTypes = window.kttmAdTypes.filter(function(a) {
+          return a !== 'AntiAdblockKiller';
+        });
+      }
+    } catch (e) {}
+    </script>
+
+  </head>
+  <body>
+    <div id="top">
+      <div class="top-left">
+        <label for="image">输入图片地址:</label><input id="image" type="text"></input>
+        <button onclick="openNewImage()">
+          打开
+        </button>
+        <div id="qr-value"></div>
+      </div>
+      <div class="top-right">
+        <canvas id="qr"></canvas>
+        <div>Made By <a href="https://github.com/chenkai0520">chenkai</a></div>
+      </div>
+    </div>
+    <div id="center">
+      <div id="cont">
+        <noscript>
+          Your browser does not support JavaScript or it is disabled.<br>
+          JavaScript is needed to view this site.
+        </noscript>
+        <div id="dots"></div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var qr = new QRious({
+          element: document.getElementById('qr'),
+          value: window.location.hred
+        });
+      })();
+      function openNewImage(){
+        try {
+          const imageEle =document.querySelector('#image');
+          const imageHref = `${window.location.origin}/?image=${new URL(imageEle.value).toString()}`
+          window.open(imageHref,'scratch image');    
+        } catch (error) {
+          alert(error);
+        }
+
+      }
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17409200-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <script type="text/javascript">
+
+    var _fastrack_account = 'FT-1000001';
+
+    (function(w,h) {
+      if (typeof _fastrack_account !== 'string') return;
+      function r8() {
+        return Math.random().toFixed(8).substring(2);
+      }
+      var id;
+      try {
+        id = localStorage.getItem('_id');
+        if (!id || id.length !== 9) {
+          id = 'I' + r8();
+          localStorage.setItem('_id', id);
+        }
+      } catch (e) {
+        id = 'n/a';
+      }
+      try {
+        var acc = _fastrack_account;
+        var session = 'S' + r8();
+        var num = 0;
+        var now = new Date();
+        var initTime = +now;
+        var tzm = String(now).match(/\((\w+)\)/);
+        w.fastrack = function(type, subtype, opt) {
+          var sx = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+          var sy = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+          var a = {
+            A: acc,
+            S: session,
+            I: id,
+            N: num++,
+            P: document.location.href,
+            L: +new Date() - initTime,
+            F: w.document.referrer || 'Direct',
+            C: screen.width + 'x' + screen.height,
+            R: sx + 'x' + sy,
+            O: now.getTimezoneOffset(),
+            Z: (tzm && tzm.length === 2) ? tzm[1] : 'N/A'
+          };
+
+          if (type) a.T = type;
+          if (subtype) a.E = subtype;
+          if (opt) {
+            var s;
+            for (var j = 1; j <= 6; j++) {
+              s = 'D0' + j;
+              if (opt[s]) { a['D0' + j] = opt['D0' + j]; }
+              s = 'M0' + j;
+              if (opt[s]) { a['M0' + j] = opt['M0' + j]; }
+            }
+          }
+
+          if ('innerWidth' in window) {
+            a.W = w.innerWidth + 'x' + w.innerHeight;
+          } else {
+            var e = w.document.documentElement || w.document.body;
+            a.W = w.clientWidth + 'x' + w.clientHeight;
+          }
+
+          var badges;
+          try {
+            var bs = localStorage.getItem('_bg');
+            badges = bs ? bs.split(',') : [];
+          } catch (e) {
+            badges = ['ERR']
+          }
+
+          var params = [];
+          for (var k in a) params.push(k + "=" + encodeURIComponent(a[k]));
+          for (var j = 0; j < badges.length; j++) params.push('B=' + encodeURIComponent(badges[j]));
+          var i = new Image();
+          i.src = h + '?' + params.join('&');
+          return true;
+        };
+        w.fastrackBadge = function(b) {
+          if (b && typeof b === 'string') {
+            try {
+              var bs = localStorage.getItem('_bg');
+              var badges = bs ? bs.split(',') : [];
+              badges = badges.filter(function(x) { return x !== b; });
+              badges.push(b);
+              localStorage.setItem('_bg', badges.join(','));
+            }catch(e){}
+          }
+          return true;
+        }
+      }catch(e){}
+    })(window,"https://cc-int.imply.io/g/imply/ft.gif");
+
+
+    </script>
+
+    <script type="text/javascript">
+      window.shownFile = 'none';
+
+      (function() {
+        var now = +new Date();
+        window.gaTrack = function(type, subtype) {
+          var time = Math.round((+new Date() - now) / 1000);
+          function doTrack() {
+            if (!window._gaq) return;
+            _gaq.push(['_trackEvent', String(type), String(subtype), window.location.href, time]);
+          }
+          if (window._gaq) {
+            doTrack()
+          } else {
+            setTimeout(doTrack, 1);
+          }
+        }
+      })();
+
+      function track(type, subtype) {
+        fastrack(type, subtype, {
+          D01: version,
+          D02: type,
+          D03: subtype,
+          D04: shownFile,
+          D05: kttmAdTypes.length ? kttmAdTypes.join(',') : 'NoAdblock',
+          M01: 1337 // tmp
+        });
+        gaTrack(type + '-' + version, subtype);
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+
+    <style>
+      .chromeFrameInstallDefaultStyle {
+        width: 800px;
+        height: 600px;
+        border: 1px solid #cccccc;
+      }
+    </style>
+
+    <div id="prompt">
+    </div>
+
+    <script>
+      window.inOldIE = true;
+      track('OldIE', '1');
+
+      // The conditional ensures that this code will only execute in IE,
+      // Therefore we can use the IE-specific attachEvent without worry
+      window.attachEvent("onload", function() {
+        CFInstall.check({
+          mode: "inline", // the default
+          node: "prompt",
+          oninstall: function() {
+            track('InstalledGCF', 'OneLessRawIE');
+          }
+        });
+      });
+    </script>
+    <![endif]-->
+
+    <!--[if gte IE 9]><!-->
+    <script type="text/javascript">
+      // Code left intentionally unminimized for your reading pleasure.
+
+      (async function() {
+        window.shownFile = 'none';
+
+        // If an error happens I want to know about it!
+        window.onerror = function(msg, url, ln) {
+          msg = msg.toString();
+          // In Chrome and Firefox an error on a script form a foreign domain will cause this, see link bellow:
+          // http://stackoverflow.com/questions/5913978/cryptic-script-error-reported-in-javascript-in-chrome-and-firefox
+          if (msg === 'Script error.' && url === '' && ln === 0) return;
+          track('OnError', "'" + msg + "' in '" + url + "' @ " + ln + " /u:'" + window.navigator.userAgent + "'");
+          // Track only one error per page load
+          window.onerror = function() {};
+        };
+
+        // First, make sure we can run.
+        if (!koala.supportsCanvas()) {
+          track('NoCanvas', window.navigator.userAgent);
+          alert("Sorry, KoalsToTheMax needs HTML5 Canvas support which your browser does not have. Supported browsers include Chrome, Safari, Firefox, Opera, and Internet Explorer 9, 10");
+          return;
+        }
+
+        if (!koala.supportsSVG()) {
+          track('NoSVG', window.navigator.userAgent);
+          alert("Sorry, KoalsToTheMax needs SVG support which your browser does not have. Supported browsers include Chrome, Safari, Firefox, Opera, and Internet Explorer 9, 10");
+          return;
+        }
+
+        // This is strange, track it if it happens.
+        if (!window.d3) {
+          track('NoD3', window.navigator.userAgent);
+          alert("Some how D3 was not loaded so the site can not start. This is bad... We are investigating. Try refreshing the page and see if that helps.");
+          return;
+        }
+
+        // Try you must. If there is an error report it to me.
+        try {
+          // btoa and atob do not handle utf-8 as I have discovered the hard way so they need to babied
+          // See: https://developer.mozilla.org/en-US/docs/DOM/window.btoa#Unicode_Strings
+          function utf8_to_b64(str) {
+            return window.btoa(unescape(encodeURIComponent(str)));
+          }
+
+          function b64_to_utf8(str) {
+            return decodeURIComponent(escape(window.atob(str)));
+          }
+
+          // Handle the custom images 'API'
+          // Supported URLs are:
+          // 1. DOMAIN
+          //   The just the page domain / loads one of the default files
+          //
+          // 2. DOMAIN?BASE64==
+          //   Where BASE64== is a UTF-8 base64 encoded string of one of the following things:
+          //   a. An image URL
+          //      Example: http://i.imgur.com/cz1Jb.jpg
+          //      Use that URL image instead of the default one.
+          //
+          //   b. A JSON string representing an array of URLs
+          //      Example: ["http://i.imgur.com/cz1Jb.jpg","http://i.imgur.com/Q5IqH.jpg"]
+          //      Pick one of the images at random and use that instead of the default one.
+          //
+          //   c. A JSON string representing an object with the keys 'images', 'background' and 'hideNote'
+          //      Example: {"background":"#000","images":["http://i.imgur.com/cz1Jb.jpg","http://i.imgur.com/Q5IqH.jpg"]}
+          //      images (required): Pick one of the images at random and use that instead of the default one.
+          //      background (optional): Use the value of background as the page background.
+          //      hideNote (optional): Hide the mention on the bottom.
+          //
+          // 3. DOMAIN?image_url
+          //   Where image URL is an actual image URL that will get re-encoded into base64 (2)
+          //   Example: http://i.imgur.com/cz1Jb.jpg
+          //
+          // Note: where DOMAIN is usually http://koalastothemax.com
+          function goToHidden(location, string) {
+            location.href = '//' + location.host + location.pathname + '?' + utf8_to_b64(string);
+          }
+          function getQueryVariable(variable) {
+              var query = window.location.search.substring(1);
+              var vars = query.split('&');
+              for (var i = 0; i < vars.length; i++) {
+                  var pair = vars[i].split('=');
+                  if (decodeURIComponent(pair[0]) == variable) {
+                      return decodeURIComponent(pair[1]);
+                  }
+              }
+              console.log('Query variable %s not found', variable);
+          }
+          async function basicLoad(location) {
+            location = location || 'panda.png';
+            let imgBase64;
+            try {
+              imgBase64 = await imageToBase64(location);
+            } catch (error) {
+              alert(error)
+            }
+            imgBase64 = `data:image/png;base64,${imgBase64}`;
+            return {
+              file: imgBase64 ,
+              shownFile: imgBase64
+            }
+          }
+
+          let { file, shownFile } = await basicLoad(getQueryVariable('image'));
+
+          function onEvent(what, value) {
+            track(what, value);
+
+            if (what === 'LayerClear' && value == 0) {
+              d3.select('#next')
+                .style('display', null)
+                .select('input')
+                  .on('keydown', function() {
+                    d3.select('div.err').remove();
+                    if (d3.event.keyCode !== 13) return;
+                    var input = d3.select(this).property('value');
+
+                    if (input.match(/^http:\/\/.+\..+/i)) {
+                      track('Submit', input);
+                      d3.select('#next div.msg').text('Thinking...');
+                      d3.select(this).style('display', 'none');
+                      setTimeout(function() {
+                        goToHidden(location, input);
+                      }, 750);
+                    } else {
+                      d3.select('#next').selectAll('div.err').data([0])
+                        .enter().append('div')
+                        .attr('class', "err")
+                        .text("That doesn't appear to be a valid image URL. [Hint: it should start with 'http://']")
+                    }
+                  });
+            }
+          }
+
+          var img = new Image();
+          img.onload = function() {
+            var colorData;
+            try {
+              colorData = koala.loadImage(this);
+            } catch (e) {
+              console.log(e);
+              colorData = null;
+              track('BadLoad', "Msg: '" + e.message + "' file: '" + file + "'");
+              alert("Sorry, KoalsToTheMax could not load the image '" + file + "'");
+              setTimeout(function() {
+                window.location.href = domian;
+              }, 750);
+            }
+            if (colorData) {
+              koala.makeCircles("#dots", colorData, onEvent);
+              track('GoodLoad', 'Yay');
+            }
+          };
+          img.src = file;
+        } catch (e) {
+          track('Problemo', String(e.message));
+        }
+
+        // Local download functionality
+        var saveNumber = 0;
+        d3.select('#love').on('click', function() {
+          saveNumber++;
+          track('SaveSVG', saveNumber);
+          svgData = d3.select('#dots').html();
+          if (svgData.indexOf('<svg') !== -1) {
+            prefix = [
+              '<?xml version="1.0" encoding="utf-8"?>',
+              '<!-- Generator: KoalasToTheMax.com -->',
+              '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
+            ];
+            saveAs(new Blob(
+              [svgData.replace('<svg', prefix.join(' ') + '<svg')],
+              {type: "text/plain;charset=utf-8"}
+            ), "KoalasToTheMax.svg");
+          } else {
+            track('SaveSVG', 'Fail');
+          }
+        });
+
+      })();
+    </script>
+    <!--<![endif]-->
+  </body>
+</html>
